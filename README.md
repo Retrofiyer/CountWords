@@ -1,5 +1,6 @@
 # JavaScript-Division Calculator
 
+![image](https://github.com/user-attachments/assets/c93508f3-a7dc-4969-b61a-b18d20f44833)
 
 ## About The Project
 
