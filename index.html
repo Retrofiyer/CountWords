@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Count Tool</title>
+</head>
+<body>
+    <h1>Word Count Tool</h1>
+    <form id="wordCountForm">
+        <label for="text">Enter text:</label>
+        <textarea id="text" name="text" rows="4" cols="50" required></textarea>
+        <br><br>
+        <button type="submit">Count Words</button>
+    </form>
+
+    <h2>Word Count: <span id="wordCount"></span></h2>
+
+    <script>
+        document.getElementById('wordCountForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const text = document.getElementById('text').value;
+
+            const response = await fetch(`/wordcount?text=${encodeURIComponent(text)}`);
+            const data = await response.json();
+
+            document.getElementById('wordCount').textContent = data.wordCount !== undefined ? data.wordCount : data.error;
+        });
+    </script>
+</body>
+</html>
